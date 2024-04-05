@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.repo | dump }}
+  annotations:
+    github.com/project-slug: ${{ values.org }}/${{ values.repo }}
+spec:
+  type: service
+  owner: user:guest
+  system: default/${{ values.name }}
+  lifecycle: experimental
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Website
+metadata:
+  name: ${{ values.name }}
+  description: Enterprise Web Application
+spec:
+  owner: user:guest
+  domain: default
+  lifecycle: experimental
+
+---
